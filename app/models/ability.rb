@@ -25,7 +25,5 @@ class Ability
     else
       can :index, Article
     end
-    
   end
-
 end

@@ -8,7 +8,7 @@ class UserTest < ActiveSupport::TestCase
 
   test 'editor user should have editor role' do
     user = users(:user_editor)
-    assert_equal "Editor", user.role.name
+    assert_equal 'Editor', user.role.name
   end
 
   test 'admin user should have admin role' do
@@ -23,20 +23,29 @@ class UserTest < ActiveSupport::TestCase
 
   test 'article with valid attributes' do
     role = roles(:role_editor)
-    user = User.create({ name: 'User', email: 'user@example.com', password: 'password', password_confirmation: 'password', role: role})
+    user = User.create(
+      {
+        name: 'User',
+        email: 'user@example.com',
+        password: 'password',
+        password_confirmation: 'password',
+        role: role
+      }
+    )
     assert user.valid?
   end
 
   test 'name must be present' do
     role = roles(:role_editor)
-    user = User.create({ name: '', email: 'user@example.com', password: 'password', password_confirmation: 'password', role: role})
-    assert_includes user.errors.messages[:name], "can't be blank"
+    user = User.create(
+      {
+        name: '',
+        email: 'user@example.com',
+        password: 'password',
+        password_confirmation: 'password',
+        role: role
+      }
+    )
+    assert_includes user.errors.messages[:name], 'can\'t be blank'
   end
-
-  test 'role must be present' do
-    user = User.create({ name: 'User', email: 'user@example.com', password: 'password', password_confirmation: 'password'})
-    user.valid?
-    assert_includes user.errors.messages[:role], "must exist"
-  end
-  
 end

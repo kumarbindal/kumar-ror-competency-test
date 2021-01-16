@@ -7,15 +7,13 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     # @user = User.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     # @user = User.new(user_params)
@@ -28,20 +26,20 @@ class UsersController < ApplicationController
 
   def update
     if user_params[:password].blank?
-        user_params.delete(:password)
-        user_params.delete(:password_confirmation)
+      user_params.delete(:password)
+      user_params.delete(:password_confirmation)
     end
 
-    successfully_updated =  if needs_password?(@user, user_params)
-                                @user.update(user_params)
-                              else
-                                @user.update_without_password(user_params)
-                              end
+    successfully_updated = if needs_password?(@user, user_params)
+                             @user.update(user_params)
+                           else
+                             @user.update_without_password(user_params)
+                           end
 
     if successfully_updated
-        redirect_to @user, notice: 'User was successfully updated.'
+      redirect_to @user, notice: 'User was successfully updated.'
     else
-        render :edit
+      render :edit
     end
   end
 
@@ -51,17 +49,18 @@ class UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    # def set_user
-    #   @user = User.find(params[:id])
-    # end
 
-    # Only allow a trusted parameter "white list" through.
-    def user_params
-      params.require(:user).permit(:name, :role_id, :email, :password, :password_confirmation)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  # def set_user
+  #   @user = User.find(params[:id])
+  # end
 
-    def needs_password?(_user, params)
-      params[:password].present?
-    end
+  # Only allow a trusted parameter "white list" through.
+  def user_params
+    params.require(:user).permit(:name, :role_id, :email, :password, :password_confirmation)
+  end
+
+  def needs_password?(_user, params)
+    params[:password].present?
+  end
 end

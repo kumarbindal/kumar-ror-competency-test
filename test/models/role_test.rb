@@ -20,5 +20,4 @@ class RoleTest < ActiveSupport::TestCase
     @role = roles(:role_user)
     assert_equal 'User', @role.name
   end
-
 end
