@@ -12,6 +12,7 @@
 2. Change into directory: `cd kumar-ror-competency-test`
 3. Install gems: `bundle install`
 4. Install JavaScript packages: `yarn install`
+5. Setup database: `rails db:setup`
 5. Start the server: `rails s`
 6. Visit http://localhost:3000/ and log in with any of the users defined in the [seeds file](https://github.com/kumarbindal/kumar-ror-competency-test/blob/master/db/seeds.rb).
 
