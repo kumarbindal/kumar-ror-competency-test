@@ -21,15 +21,16 @@
           <%= link_to "Sign up", new_user_registration_path %> or
           <%= link_to "sign in", new_user_session_path %>
         <% end %>
-
+        <br /><br />
         <nav>
-          <% if @current_user&.admin? %>
-            <%= link_to "Article List", articles_path %> |
+          <%= link_to "Home", root_path %>  
+          <%= link_to "Article List", articles_path %>
+          <% if current_user&.admin? %>
             <%= link_to "User List", users_path %> 
           <% end %>
         </nav>
       </header>
-
+      <br />
       <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, id: "flash_#{name}" %>
       <% end %>
