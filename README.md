@@ -8,12 +8,12 @@
 
 ## Installation Steps
 
-1. Clone repo: `git clone git@github.com:kumarbindal/kumar-ror-competency-test.git`
+1. Clone repo: `git clone https://github.com/kumarbindal/kumar-ror-competency-test.git`
 2. Change into directory: `cd kumar-ror-competency-test`
 3. Install gems: `bundle install`
 4. Install JavaScript packages: `yarn install`
 5. Start the server: `rails s`
-6. Visit http://localhost:3000/ and log in with any of the users defined in the [seeds file](https://github.com/kumarbindal/ExpressDemo/blob/master/db/seeds.rb).
+6. Visit http://localhost:3000/ and log in with any of the users defined in the [seeds file](https://github.com/kumarbindal/kumar-ror-competency-test/blob/master/db/seeds.rb).
 
 
 ## User Personas
